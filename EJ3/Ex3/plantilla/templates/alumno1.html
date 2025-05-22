@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titulo1 %} Alumno {{pk}} {% endblock %}</title>
+</head>
+<body>
+	{% block h1 %} <h1>Ejemplo para alumno 1 </h1>{% endblock %}
+	{% block h2 %} <h2>Información del alumno...</h2>{% endblock %}
+
+	{% block content2 %}
+		<h2>Acá puedes meter otro título</h2>
+		<p> También más información sobre el alumno</p>
+		<p>O puedes meter una promoción buena sobre bimbo...</p>
+		<button onclick="location.href='2/'">Siguiente alumno</button>
+	{% endblock %}
+	
+	<p>
+	<button type="button" onclick="location.href='2/'"> <img src="/static/images/CG2.png" height ="30" width="30" /></button>
+	</p>
+</body>
+</html>

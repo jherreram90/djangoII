@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titulo1 %} PESTAÑA {% endblock %}</title>
+</head>
+<body>
+
+	{% block h1 %} <h1> TÍTULO </h1>{% endblock %}
+	{% block h2 %} <h2> INFORMACIÓN </h2> {% endblock %}
+
+	{% block content1 %} 
+		<p>Nombre: {{ Nombre }}</p>
+		<p>Matricula: {{ Matricula }}</p>
+		<p>Edad: {{ Edad }}</p>
+		<p>
+			<img src={{foto}}>
+		</p>
+		<p>
+			{% for M, C in lista %}
+				<p>{{M}}---{{C}}</p>
+			{% endfor %}
+		</p>
+		<p>Promedio: {{ Prom }}</p>
+
+		{% if Edad < "18" %}
+			<p>Es menor de edad</p>
+		{% else %}
+			<p>Es mayor de edad</p>
+		{% endif %}
+		
+	{% endblock %}
+
+
+	{% block content2 %}
+		<p>ACÁ PUEDE IR PUBLICIDAD...</p>
+	{% endblock %}
+	<p>
+	<button type="button" onclick="location.href='2/'"> <img src="static/images/CG2.png" height ="50" width="50" /></button>
+	</p>
+</body>
+</html>
