@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{ funcion.Nom }}</h1>
+<p>
+	<img src="{% static funcion.Im %}">
+</p>
+<p>
+	{{ funcion.Des }}
+</p>
+{% endblock %}

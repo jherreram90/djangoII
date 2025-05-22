@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<h1>MI MÚSICA</h1>
+{% endblock %}
+
+{% block contenido %}
+<table border="1">
+	<tr>
+		<td align="center"><strong>NOMBRE</strong></td>
+		<td align="center"><strong>ARTISTA</strong></td>
+		<td colspan="3" align="center"><strong>ACCIONES</strong></td>
+	</tr>
+
+	<tbody>
+		{% for l in listas %}
+		<tr>
+			<td>{{l.nombre}}</td>
+			<td>{{l.artista}}</td>
+			<td>
+				<a href="{{l.pk}}/delete">ELIMINAR</a>
+			</td>
+			<td>
+				<a href="{{l.pk}}/update">ACTUALIZAR</a>
+			</td>
+			<td>
+				<a href="{{l.pk}}">VER</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<p>
+<form action="crear">
+	<button type="submit">Añadir registro</button>
+</form>
+</p>
+{% endblock %}

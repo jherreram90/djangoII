@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Bienvenida
+{% endblock %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+<p>Hola {{user.username}}</p>
+<a href="{% url 'logout' %}">Log out</a>
+{% else %}
+<p>No estás logueado.</p>
+<a href="{% url 'login' %}">Log in</a>
+<p>¿Eres nuevo? Registrate:</p>
+<a href="{% url 'signup' %}">Registrarse</a>
+<p>¿Olvidaste tu contraseña?</p>
+<a href="{% url 'password_reset' %}">Recuperar contraseña</a>
+{% endif %}
+{% endblock %}

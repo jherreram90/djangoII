@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<h1> ELIMINAR.</h1>
+{% endblock %}
+
+{% block contenido %}
+<h2>Eliminar: {{ object.id }}?</h2>
+
+<form method="POST">
+	{% csrf_token %}
+	<p>¿estás seguro? que deseas eliminar: <strong>{{ object.nombre }} </strong></p>
+	<button type="submit">Borrar</button>
+</form>
+<p>
+	<button onclick="location.href='/' ">CANCERLAR</button>
+</p>
+
+{% endblock %}

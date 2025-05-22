@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<h1>AÑADIR REGISTRO</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<form method="POST">
+	{% csrf_token %}
+	<table border="1">
+		{{ form.as_table }}
+	</table>
+	<p>
+		<button type="submit">Añadir</button>
+	</p>
+</form>
+
+<p>
+	<button onclick="location.href='index' ">CANCELAR</button>
+</p>
+{% endblock %}

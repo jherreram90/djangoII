@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>REGISTRO Y CONTROL DE PELICULAS</h1>
+<h2>Datos en el registro:</h2>
+<ul>
+	<li><strong>Peliculas: </strong>{{peliculas}}</li>
+	<li><strong>Directores: </strong>{{directores}}</li>
+</ul>
+<p>
+	<button onclick="location.href='lista/'">Lista</button>
+</p>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FORMULARIO</title>
+</head>
+<body>
+	<h2>Llena el formulario...</h2>
+	<form method="POST" action="/Respuesta/">	
+	{% csrf_token %}
+	{{ form.no_field.errors }}
+	<div>
+		{{ form.nombre.errors }}
+		<label for="{{form.nombre.id_for_label}}">
+		Nombre:
+		</label>
+		{{ form.nombre }}
+		{{ form.nombre.help_text }}
+	</div>
+	
+	<div>
+		{{ form.email.errors }}
+		<label for="{{form.email.id_for_label}}">
+			Email:
+		</label>
+		{{ form.email }}
+		{{ form.email.help_text }}
+	</div>
+
+	<div>
+		{{ form.password.errors }}
+		<label for="{{form.password.id_for_label}}">
+			Password:
+		</label>
+		{{form.password}}
+		{{form.password.help_text}}
+	</div>
+
+	<div>
+		<button type="submit">ENVIAR</button>
+	</div>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+	{% extends 'base.html' %}
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titulo %}Crear Tareas{% endblock %}</title>
+</head>
+<body>
+	{% block content %}
+	<main class="container">
+		<div class="row">
+			<div class="col-md-4 offset-md-4 mt-5">
+				<form action="/tasks/create/" method="POST" class="card card-body">
+					<h1 class="text-center">Crear tarea.</h1>
+					{{error}}
+					{% csrf_token %}
+					{{form}}
+					<button class="btn btn-primary">
+						Crear
+					</button>
+				</form>	
+			</div>
+		</div>
+	</main>
+
+	{% endblock %}
+</body>
+</html>

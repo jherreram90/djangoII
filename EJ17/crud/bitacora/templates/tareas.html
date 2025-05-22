@@ -1,0 +1,31 @@
+ {% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titulo %}Tareas{% endblock %}</title>
+</head>
+<body>
+	{% block content %}
+	<h2>Pendiente</h2>
+	<ul>
+	{% for tarea in tareas %}
+		<li>
+			{% if tarea.urgente %}
+				<strong>{{tarea.titulo}}</strong>
+			{% else %}
+				<p>{{tarea.titulo}}</p>
+			{% endif %}
+			<a href="{% url 'detalle_tarea' tarea.id %}">
+				<p>{{tarea.desc}}</p>
+				<p>{{tarea.completado|date:'M j Y:i'}}</p>
+			<!--<p>{{task.important}}</p>-->
+			</a>
+			<p>{{tarea.user}}</p>
+		</li>
+	{% endfor %}
+	</ul>
+	{% endblock %}
+</body>
+</html>

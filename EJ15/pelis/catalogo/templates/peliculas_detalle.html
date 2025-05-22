@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>{{peli.titulo}}</title>
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Titulo: {{peli.titulo}}</h2>
+<p><strong>Resumen:</strong></p>
+<p>{{peli.resumen}}</p>
+<p><strong>Director: </strong>{% for autor in peli.autor.all %}{{autor}}{% endfor%}</p>
+<p>
+	<button onclick="location.href='/'">Index</button> 	<button onclick="location.href='/lista'">Lista</button>
+</p>
+
+{% endblock %}

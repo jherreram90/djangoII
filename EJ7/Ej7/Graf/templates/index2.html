@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block title%}
+<h1>GRÁFICO DE FUNCIÓN</h1>
+{%endblock title%}
+
+{%block content%}
+	<div id="container" style="width: 50%;" >
+    	<canvas id="chart"></canvas>
+  	</div>
+
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+  	<script>
+    var config = {
+      type: 'line',
+      data: {
+        datasets: [{
+          data:[{% for i in data %}
+         {{i}},{% endfor %}],
+          backgroundColor:'#37c0c010',
+          label: 'f(x)',
+          borderColor: 'rgb(55, 192, 192)',
+        }],
+        labels: [{% for j in labels %}
+         {{j}},{% endfor %}],
+        fill: true,
+      },
+      options: {
+        responsive:true,
+      }
+    };
+
+    window.onload = function(){
+      var ctx = document.getElementById('chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+{%endblock content%}

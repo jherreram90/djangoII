@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<h1>MODIFICA DATOS</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Actualizando: {{ lista.id }}</h2>
+
+<form method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">ACTUALIZAR</button>
+</form>
+
+<p>
+<button onclick="location.href='/' ">CANCELAR</button>
+</p>
+{% endblock %}

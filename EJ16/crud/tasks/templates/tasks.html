@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titulo %}Tareas{% endblock %}</title>
+</head>
+<body>
+	{% block content %}
+	<main class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<h1 class="text-center display-3 py-4">Pendiente</h1>
+				<ul class="list-group">
+				{% for task in tareas %}
+					<a class="list-group-item" href="{% url 'task_detail' task.id %}">
+					<header class="d-flex justify-content-between">
+						{% if task.important %}
+							<h1 class="fw-bold">{{task.title}}</h1>	
+						{% else %}
+							<h1>{{task.title}}</h1>
+						{% endif %}
+						<p>{{task.user.username}}</p>
+					</header>
+					
+					<p>{{task.description}}</p>
+					<p>{{task.datecompleted|date:'M j Y:i'}}</p>
+		</li>
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</main>
+
+	{% endblock %}
+</body>
+</html>

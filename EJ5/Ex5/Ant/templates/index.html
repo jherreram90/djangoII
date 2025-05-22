@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Antonimos</title>
+</head>
+<body>
+	<input type="text" id="input" placeholder="Input">
+	<input type="submit" value="Ver" onclick="antonimo()">
+	<br> Resultado: <h id='result'></h>  
+</body>
+</html>
+<script>
+	function antonimo()
+	{
+
+		var dat=JSON.parse("{{data|escapejs}}");
+		var input=document.getElementById('input').value;
+		var result=document.getElementById('result');
+		var band=1;
+		for(var x in dat)
+		{
+			if(input.toLowerCase()==dat[x][0].toLowerCase())
+			{
+				result.innerHTML=dat[x][1];
+				band=0;
+			}
+			else if(input.toLowerCase()==dat[x][1].toLowerCase())
+			{
+				result.innerHTML=dat[x][0];
+				band=0;		
+			}
+		}
+		if(band)
+		{
+			result.innerHTML='No se encontraron resultados'
+		}
+
+	}
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block titulo %}base django{% endblock %}</title>
+</head>
+
+<body>
+	<nav>
+    	<a href="/">Bitácora</a>
+      	<ul> <!--Desplaza li-->
+			<li>
+				<a href="/">Inicio</a>
+			</li>
+			{% if user.is_authenticated %}
+			<li>
+				<a href="/logout">Cerrar sesión</a>
+			</li>
+			
+			<li>
+				<a href="{% url 'tareas' %}">Pendientes</a>
+			</li>
+
+			<li>
+				<a href="{% url 'completadas' %}">Concluidas</a>
+			</li>
+
+			<li>
+				<a href="/tareas/crear">Añadir pendiente(s)</a>
+			</li>
+			{% else %}
+			<li>
+				<a href="/registrar">Registrarse</a>
+			</li>
+			<li>
+				<a href="/login">Iniciar sesión</a>
+			</li>
+			{% endif %}
+      	</ul>
+	</nav> 
+	
+	{% block content %}
+
+	{% endblock %}
+
+</body>
+</html>

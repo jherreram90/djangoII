@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<h1>{{cancion.nombre}}</h1>
+{% endblock %}
+
+{% block contenido %}
+<p>CANCIÓN:</p>
+<p>{{ cancion.nombre }}</p>
+
+<p>DURACIÓN:</p>
+<p>{{ cancion.duracion }}</p>
+
+<p>ARTISTA:</p>
+<p>{{ cancion.artista }}</p>
+
+<p>ALBUM:</p>
+<p>{{ cancion.album }}</p>
+
+<button onclick="location.href='/' ">VER LISTA</button>
+{% endblock %}

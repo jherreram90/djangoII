@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Lista a detalle</title>
+{% endblock %}
+
+{% block contenido %}
+<h2>LISTADO A DETALLE DE REGISTROS.</h2>
+
+{% if object_list %}
+	{% for p in pelis %}
+		<li>
+			<a href="{{ p.get_absolute_url }}">{{p.titulo}}</a>
+		</li>
+	{% endfor %}
+{% else %}
+	<p>Aún no hay registros..</p>
+{% endif %}
+
+<p>
+	<button onclick="location.href='/'">Index</button>
+</p>
+Hola
+{% endblock %}

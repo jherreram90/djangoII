@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title%}
+<h1>GRÁFICOS CIRCULARES</h1>
+{%endblock title%}
+
+
+{% block content %}
+	<div id="container" style="width: 50%;">
+    	<canvas id="chart"></canvas>
+	</div>
+
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+  	<script>
+    var config = {
+      type: 'pie', //tipo dona
+      data: {
+        datasets: [{
+          data: {{data|safe}}, //esto viene desde views
+          backgroundColor: ['#555555', '#808080', '#A9A9A9'],
+          label: 'Medallas'
+        }],
+        labels: {{labels|safe}}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+  	</script>
+{% endblock content %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Articulos</title>
+</head>
+<body>
+<h1>ARTICULOS</h1>
+{% for articulo in object_list %}
+<ul>
+	<li>
+		<a href="{{ articulo.get_absolute_url }}">{{ articulo.titulo }}
+		</a>
+	</li>
+</ul>
+{% endfor %}
+</body>
+</html>

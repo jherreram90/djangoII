@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% for f in funciones %}
+<h5>{{ f.Nom }}</h5>
+<p>
+	<img src="{% static f.Im %}">
+</p>
+<p>
+	<a href="{% url 'detalle' f.pk %}">Ver más...</a> 
+</p>
+{% endfor %}
+
+{% endblock content %}

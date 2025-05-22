@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{%block titulo%}Home{% endblock %}</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>
+				<a href="/">home</a>
+			</li>
+			<li>
+				<a href="/tasks">tasks</a>
+			</li>
+			<li>
+				<a href="/signup">signup</a>
+			</li>
+		</ul>
+	</nav>
+	{% block content %}
+	<main class="container py-4">
+		<section class="card card-body">
+			<h1 class="display-1 text-center">Diario</h1>
+			<p>Diario para diversos usuarios sin una aplicación en concreto</p>
+			<div class="text-center">
+				<a class="btn btn-primary" href="/signup">Registrarse</a>
+				<a class="btn btn-primary" href="/signup">Identificarse</a>
+			</div>
+		</section>
+	</main>	
+	{% endblock %}
+</body>
+</html>
